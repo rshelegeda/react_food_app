@@ -1,0 +1,60 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+
+.input, .select, .button-select-location {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid var(--tg-theme-button-color);
+    border-radius: 5px;
+}
+
+.button-select-location {
+    margin-bottom: 15px; /* Залишаємо нижній відступ для відокремлення кнопки від наступних елементів */
+}
+
+.delivery-label {
+    margin-top: 0;
+    margin-bottom: 0; /* Видаляємо нижній відступ */
+}
+
+.select-delivery {
+    margin-top: 5px; /* Замість нижнього відступу додаємо невеликий верхній відступ для відокремлення від заголовка */
+    margin-bottom: 15px; /* Залишаємо нижній відступ для відокремлення випадаючого списку від наступних елементів */
+}
+
+.map-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.map-modal .leaflet-container {
+    flex-grow: 1;
+    border-radius: 5px;
+}
+
+.map-button-close {
+    padding: 5px 10px;
+    margin-top: 15px;
+    margin-left: auto;
+    background-color: var(--tg-theme-button-bg-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
