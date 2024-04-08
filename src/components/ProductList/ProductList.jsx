@@ -40,7 +40,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('https://node-server-foodabb-bot-c856d014b0ab.herokuapp.com/web-data', {
+        fetch('https://node-food-app-bc0ed9006cdf.herokuapp.com/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
