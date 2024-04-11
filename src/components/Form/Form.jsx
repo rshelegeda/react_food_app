@@ -56,9 +56,11 @@ const Form = () => {
   }, [city, street]);
 
   const onSendData = useCallback(() => {
-    try {
-      dispatch(setDeliveryPrice(100));
-      // const deliveryPrice = calculateDeliveryPrice();
+    const deliveryPrice = calculateDeliveryPrice();
+    dispatch(setDeliveryPrice(calculateDeliveryPrice()));
+    alert(delPrice + " " + deliveryPrice);
+    try {    
+      
       const deliveryTime = calculateDeliveryTime();
       const data = {
         name,
