@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export const orderSlice = createSlice({
-  name: 'order',
+  name: 'Order',
   initialState,
   reducers: {
     setDeliveryPrice: (state, action) => {
