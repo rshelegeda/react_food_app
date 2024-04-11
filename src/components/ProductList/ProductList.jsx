@@ -50,7 +50,7 @@ const ProductList = () => {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
-            deliveryPrice: 1400
+            deliveryPrice: delPrice
         }
         fetch('https://node-food-app-bc0ed9006cdf.herokuapp.com/web-data', {
             method: 'POST',

@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export const orderSlice = createSlice({
-  name: 'Order',
+  name: 'order',
   initialState,
   reducers: {
     setDeliveryPrice: (state, action) => {
@@ -14,7 +14,7 @@ export const orderSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.deliveryPrice = 1200;
+      state.deliveryPrice = action.payload;
       alert('From reducer deliveryPrice: ' + JSON.stringify(state.deliveryPrice));
     },    
   },
