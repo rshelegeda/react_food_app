@@ -60,7 +60,7 @@ const Form = () => {
     dispatch(setDeliveryPrice(deliveryPrice));
 
     alert('Form' + deliveryPrice);
-    alert('Form2' + useSelector((state) => state.Order.deliveryPrice));
+    
     try {    
       
       const deliveryTime = calculateDeliveryTime();
