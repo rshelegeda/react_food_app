@@ -59,7 +59,7 @@ const Form = () => {
     const deliveryPrice = calculateDeliveryPrice();
     dispatch(setDeliveryPrice(deliveryPrice));
 
-    alert('Form' + deliveryPrice);
+    // alert('Form' + deliveryPrice);
     
     try {    
       
