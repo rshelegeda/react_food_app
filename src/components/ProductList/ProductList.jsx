@@ -37,18 +37,18 @@ const getTotalPrice = (items = []) => {
 const ProductList = () => {
 
     const delPrice = useSelector((state) => state.order.deliveryPrice);
-    const dispatch = useDispatch();
-    console.log(delPrice);
+    const dispatch = useDispatch();    
 
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId} = useTelegram();
 
     const onSendData = useCallback(() => {
+        
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
-            deliveryPrice: delPrice
+            deliveryPrice: delPrice || 0
         }
         fetch('https://node-food-app-bc0ed9006cdf.herokuapp.com/web-data', {
             method: 'POST',
@@ -93,6 +93,7 @@ const ProductList = () => {
         <div className={'list'}>
             {products.map(item => (
                 <ProductItem
+                    key={item.id}
                     product={item}
                     onAdd={onAdd}
                     className={'item'}

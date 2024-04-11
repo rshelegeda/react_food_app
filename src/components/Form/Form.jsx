@@ -15,7 +15,7 @@ function LocationPicker({ onLocationSelect }) {
         },
     });
     return null;
-}
+};
 
 const Form = () => {
 
