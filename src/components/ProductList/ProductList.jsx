@@ -1,4 +1,8 @@
 import React, {useState} from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { setDeliveryPrice } from '../../features/order/orderSlice';
+
 import './ProductList.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
@@ -31,6 +35,11 @@ const getTotalPrice = (items = []) => {
 }
 
 const ProductList = () => {
+
+    const delPrice = useSelector((state) => state.order.deliveryPrice);
+    const dispatch = useDispatch();
+    console.log(delPrice);
+
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId} = useTelegram();
 
@@ -39,6 +48,7 @@ const ProductList = () => {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
+            deliveryPrice: delPrice
         }
         fetch('https://node-food-app-bc0ed9006cdf.herokuapp.com/web-data', {
             method: 'POST',

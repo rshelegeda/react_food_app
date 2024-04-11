@@ -1,4 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { setDeliveryPrice } from '../../features/order/orderSlice'
+
 import './Form.css';
 import { useTelegram } from "../../hooks/useTelegram";
 import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
@@ -14,6 +18,11 @@ function LocationPicker({ onLocationSelect }) {
 }
 
 const Form = () => {
+
+    const delPrice = useSelector((state) => state.order.deliveryPrice);
+    const dispatch = useDispatch();
+
+
     const [name, setName] = useState('');
     const [numberphone, setNumberPhone] = useState('');
     const [city, setCity] = useState('');
@@ -44,15 +53,15 @@ const Form = () => {
     }, [city, street]);
 
     const onSendData = useCallback(() => {
-        const deliveryPrice = calculateDeliveryPrice();
+        dispatch(setDeliveryPrice(calculateDeliveryPrice()));
+        // const deliveryPrice = calculateDeliveryPrice();
         const deliveryTime = calculateDeliveryTime();
         const data = {
             name,
             numberphone,
             city,
             street,
-            deliveryMethod,
-            deliveryPrice,
+            deliveryMethod,            
             deliveryTime
         };
         tg.sendData(JSON.stringify(data));
