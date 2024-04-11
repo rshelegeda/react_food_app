@@ -37,6 +37,7 @@ const getTotalPrice = (items = []) => {
 const ProductList = () => {
 
     const delPrice = useSelector((state) => state.order.deliveryPrice);
+    alert('Fron ProductList delPrice = ' + JSON.stringify(delPrice));
     const dispatch = useDispatch();    
 
     const [addedItems, setAddedItems] = useState([]);
@@ -48,7 +49,7 @@ const ProductList = () => {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
-            deliveryPrice: delPrice || 0
+            deliveryPrice: delPrice
         }
         fetch('https://node-food-app-bc0ed9006cdf.herokuapp.com/web-data', {
             method: 'POST',
