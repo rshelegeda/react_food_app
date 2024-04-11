@@ -18,7 +18,7 @@ function LocationPicker({ onLocationSelect }) {
 }
 
 const Form = () => {
-  const delPrice = useSelector((state) => state.order.deliveryPrice);
+//   const delPrice = useSelector((state) => state.order.deliveryPrice);
   const dispatch = useDispatch();
 
   const [name, setName] = useState("");
@@ -57,8 +57,8 @@ const Form = () => {
 
   const onSendData = useCallback(() => {
     const deliveryPrice = calculateDeliveryPrice();
-    dispatch(setDeliveryPrice(calculateDeliveryPrice()));
-    alert(delPrice + " " + deliveryPrice);
+    dispatch(setDeliveryPrice(deliveryPrice));
+    alert(deliveryPrice);
     try {    
       
       const deliveryTime = calculateDeliveryTime();
@@ -69,13 +69,13 @@ const Form = () => {
         street,
         deliveryMethod,
         deliveryTime,
-        deliveryPrice: delPrice
+        deliveryPrice
       };
       tg.sendData(JSON.stringify(data));
     } catch (error) {
       alert(error);
     }
-  }, [name, numberphone, city, street, deliveryMethod, selectedLocation, delPrice]);
+  }, [name, numberphone, city, street, deliveryMethod, selectedLocation]);
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
