@@ -58,7 +58,9 @@ const Form = () => {
   const onSendData = useCallback(() => {
     const deliveryPrice = calculateDeliveryPrice();
     dispatch(setDeliveryPrice(deliveryPrice));
-    alert(deliveryPrice);
+
+    alert('Form' + deliveryPrice);
+    alert('Form2' + useSelector((state) => state.Order.deliveryPrice));
     try {    
       
       const deliveryTime = calculateDeliveryTime();

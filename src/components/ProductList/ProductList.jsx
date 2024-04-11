@@ -36,7 +36,7 @@ const getTotalPrice = (items = []) => {
 
 const ProductList = () => {
 
-    const delPrice = useSelector((state) => state); 
+    const delPrice = useSelector((state) => state.Order.deliveryPrice); 
 
     alert('Fron ProductList delPrice = ' + JSON.stringify(delPrice));
     const dispatch = useDispatch();    
